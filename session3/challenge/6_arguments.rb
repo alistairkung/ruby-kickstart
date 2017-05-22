@@ -17,3 +17,16 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+def match_maker(opposites, *elements)
+  to_return = []
+  elements.each_slice (2) do |first,last|
+    first = !!first
+    last = !!last
+    result = if opposites
+      first != last
+      else first == last
+      end
+    to_return << result
+  end
+  to_return
+end

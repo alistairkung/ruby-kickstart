@@ -7,5 +7,10 @@
 
 class String
   def every_other_char
+    everyotherchar = ''
+    each_char.with_index do |char,index|
+      everyotherchar << char if index.even?
+    end
+  everyotherchar
   end
 end
